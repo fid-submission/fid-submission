@@ -1,0 +1,28 @@
+080488BC _gcc_except_table segment dword public 'CONST' use32
+080488BC                 assume cs:_gcc_except_table
+080488BC byte_80488BC    db 0FFh                 ; DATA XREF: .eh_frame:08048839o
+080488BC                                         ; LPStart encoding: DW_EH_PE_omit
+080488BD                 db 0                    ; TType encoding: DW_EH_PE_ptr|DW_EH_PE_absptr
+080488BE                 db 15h                  ; TType offset: 00000015 -> 080488D4
+080488BF                 db 1                    ; call site encoding: DW_EH_PE_uleb128|DW_EH_PE_absptr
+080488C0                 db offset byte_80488CD - 80488C1h ; call site table length: 0000000C
+080488C0                                         ; action table start: 080488CD
+080488C1                 db offset loc_804863E - 8048634h ; cs_start[0] = 0804863E
+080488C2                 db 5                    ; cs_len[0] = 5 (end = 08048643)
+080488C3                 db offset sub_804865E - 8048634h ; cs_lp[0] = 0804865E
+080488C4                 db 1                    ; cs_action[0] = 1 (080488CD)
+080488C5                 db offset j___Unwind_Resume - 8048634h ; cs_start[1] = 08048659
+080488C6                 db 12h                  ; cs_len[1] = 18 (end = 0804866B)
+080488C7                 db 0                    ; cs_lp[1] = 0 (none)
+080488C8                 db 0                    ; cs_action[1] = 0 (no action)
+080488C9                 db offset loc_8048688 - 8048634h ; cs_start[2] = 08048688
+080488CA                 db 5                    ; cs_len[2] = 5 (end = 0804868D)
+080488CB                 db offset sub_804864D - 8048634h ; cs_lp[2] = 0804864D
+080488CC                 db 0                    ; cs_action[2] = 0 (no action)
+080488CD byte_80488CD    db 1                    ; DATA XREF: .gcc_except_table:080488C0o
+080488CD                                         ; ar_filter[1]: 1 (catch type typeinfo = 0804A040)
+080488CE                 db 0                    ; ar_disp[1]: 0 (end)
+080488CF                 db    0
+080488D0                 dd offset _ZTIi@@CXXABI_1_3 ; Type index 1
+080488D0 _gcc_except_table ends
+080488D0
